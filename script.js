@@ -81,8 +81,8 @@ function kirimPesanan() {
 
     let nomorPesanan = Math.floor(1000 + Math.random() * 9000);
 
-    let detailPesanan = keranjang.map(item => {
-        return `- ${item.nama} x${item.qty} = Rp ${item.harga * item.qty}`;
+    let detailPesanan = keranjang.map((item, i) => {
+    return `${i + 1}. ${item.nama} x${item.qty} = Rp ${item.harga * item.qty}`;
     }).join("\n");
 
     let pesan =
