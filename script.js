@@ -114,7 +114,7 @@ function kirimPesanan() {
     let pesan =
     `PESANAN BARU - DINE IN
 
-    No Pesanan : #${nomorPesanan}
+    No Pesanan : ${nomorPesanan}
     Nama       : ${nama}
     No Meja    : ${meja}
 
