@@ -149,13 +149,6 @@ footer {
     text-align: left;
 }
 
-.order-summary button.hapus {
-    background: none;
-    border: none;
-    color: red;
-    cursor: pointer;
-}
-
 .total-box {
     display: flex;
     justify-content: space-between;
@@ -172,3 +165,21 @@ footer {
     border-radius: 6px;
     font-size: 16px;
 }
+
+
+.order-summary button {
+    padding: 6px 10px;
+    background: #ee8f0b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.aksi {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+

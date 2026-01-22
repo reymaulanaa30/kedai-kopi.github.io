@@ -2,64 +2,72 @@ let keranjang = [];
 let total = 0;
 
 function tambahKeKeranjang(nama, harga) {
-    keranjang.push({ nama, harga });
-    total += harga;
+    let item = keranjang.find(p => p.nama === nama);
+
+    if (item) {
+        item.qty++;
+    } else {
+        keranjang.push({
+            nama: nama,
+            harga: harga,
+            qty: 1
+        });
+    }
+
     renderKeranjang();
 }
 
 function renderKeranjang() {
     let tbody = document.getElementById("keranjang");
     tbody.innerHTML = "";
+    total = 0;
 
     keranjang.forEach((item, index) => {
+        let subtotal = item.harga * item.qty;
+        total += subtotal;
+
         let row = `
-            <tr>
-                <td>${item.nama}</td>
-                <td>Rp ${item.harga}</td>
-                <td>
-                    <button class="hapus" onclick="hapusItem(${index})">
-                        Hapus
-                    </button>
-                </td>
-            </tr>
-        `;
+<tr>
+    <td>
+        ${item.nama}<br>
+        <small>x${item.qty}</small>
+    </td>
+
+    <td>Rp ${item.harga * item.qty}</td>
+
+    <td class="aksi">
+        <button class="btn-minus" onclick="kurangiQty(${index})">−</button>
+        <button class="btn-plus" onclick="tambahQty(${index})">+</button>
+        <button class="btn-hapus" onclick="hapusItem(${index})">Hapus</button>
+    </td>
+</tr>
+`;
+
         tbody.innerHTML += row;
     });
 
     document.getElementById("total").textContent = total;
 }
 
-function hapusItem(index) {
-    total -= keranjang[index].harga;
-    keranjang.splice(index, 1);
+function tambahQty(index) {
+    keranjang[index].qty++;
     renderKeranjang();
 }
 
-function kirimPesanan() {
-    let nama = document.getElementById("nama").value;
-    let meja = document.getElementById("meja").value;
+function kurangiQty(index) {
+    keranjang[index].qty--;
 
-    if (!nama || !meja || keranjang.length === 0) {
-        alert("Mohon lengkapi data dan pesanan.");
-        return;
+    if (keranjang[index].qty <= 0) {
+        keranjang.splice(index, 1);
     }
 
-    let nomorPesanan = Math.floor(Math.random() * 9000) + 1000;
-
-    alert(
-        `Pesanan Berhasil!\n\n` +
-        `No. Pesanan: #${nomorPesanan}\n` +
-        `Nama: ${nama}\n` +
-        `Meja: ${meja}\n` +
-        `Total: Rp ${total}\n\n` +
-        `Silakan menunggu pesanan Anda.`
-    );
-
-    keranjang = [];
-    total = 0;
     renderKeranjang();
-    document.getElementById("nama").value = "";
-    document.getElementById("meja").value = "";
+}
+
+
+function hapusItem(index) {
+    keranjang.splice(index, 1);
+    renderKeranjang();
 }
 
 function kirimPesanan() {
@@ -74,25 +82,25 @@ function kirimPesanan() {
     let nomorPesanan = Math.floor(1000 + Math.random() * 9000);
 
     let detailPesanan = keranjang.map(item => {
-        return `- ${item.nama} (Rp ${item.harga})`;
+        return `- ${item.nama} x${item.qty} = Rp ${item.harga * item.qty}`;
     }).join("\n");
 
     let pesan =
-`PESANAN BARU - DINE IN
+    `PESANAN BARU - DINE IN
 
-No Pesanan : #${nomorPesanan}
-Nama       : ${nama}
-No Meja    : ${meja}
+    No Pesanan : #${nomorPesanan}
+    Nama       : ${nama}
+    No Meja    : ${meja}
 
-Detail Pesanan:
-${detailPesanan}
+    Detail Pesanan:
+    ${detailPesanan}
 
-Total Pembayaran:
-Rp ${total}
+    Total Pembayaran:
+    Rp ${total}
 
 Status : MENUNGGU DIPROSES`;
 
-    let nomorBarista = "628812479186"; // GANTI
+    let nomorBarista = "628812479186"; // nomor barista
 
     let url =
         "https://wa.me/" +
@@ -106,4 +114,5 @@ Status : MENUNGGU DIPROSES`;
     total = 0;
     renderKeranjang();
 }
+
 
