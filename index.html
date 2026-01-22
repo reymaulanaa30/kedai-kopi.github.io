@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kedai Kopi Kontol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h1>Kedai Kopi Kontol</h1>
+    <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#pesan">Pesan</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Kopi Berkualitas, Disajikan dengan Hati</h2>
+        <p>
+            Kedai kopi lokal dengan biji pilihan yang diaduk 
+            langsung 
+            menggunakan kontol baristanya dan suasana
+            nyaman untuk semua kalangan.
+        </p>
+    </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang" class="section tentang">
+    <img src="img/kedai.jpg">
+    <div>
+        <h2>Tentang Kedai Kopi Kontol</h2>
+        <p>
+            Kedai Kopi RN berdiri sebagai usaha lokal yang berkomitmen
+            menghadirkan kopi berkualitas tinggi dengan harga terjangkau.
+            Kami percaya kopi bukan hanya minuman, tetapi pengalaman.
+        </p>
+
+        <h3>Visi</h3>
+        <p>Menjadi kedai kopi lokal terpercaya dengan kualitas terbaik.</p>
+
+        <h3>Misi</h3>
+        <ul>
+            <li>Menyajikan kopi berkualitas tinggi</li>
+            <li>Memberikan pelayanan ramah dan profesional</li>
+            <li>Menciptakan ruang nyaman bagi pelanggan</li>
+        </ul>
+    </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="section menu">
+    <h2>Menu Unggulan</h2>
+
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="img/espresso.jpg">
+            <h3>Espresso</h3>
+            <p>Kopi hitam pekat dengan aroma kuat</p>
+            <span>Rp 15.000</span>
+            <button onclick="tambahKeKeranjang('Espresso',15000)">Tambah</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/americano.jpg">
+            <h3>Americano</h3>
+            <p>Espresso dengan air panas</p>
+            <span>Rp 18.000</span>
+            <button onclick="tambahKeKeranjang('Americano',18000)">Tambah</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/cappuccino.jpg">
+            <h3>Cappuccino</h3>
+            <p>Espresso, susu, dan foam lembut</p>
+            <span>Rp 22.000</span>
+            <button onclick="tambahKeKeranjang('Cappuccino',22000)">Tambah</button>
+        </div>
+        
+        <div class="menu-item">
+            <img src="img/katsu.jpg">
+            <h3>Chicken Katsu</h3>
+            <p>Chicken Katsu dengan nasi putih yang lembut</p>
+            <span>Rp 21.000</span>
+            <button onclick="tambahKeKeranjang('Chicken Katsu',21000)">Tambah</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/fries.jpg">
+            <h3>French Fries</h3>
+            <p>Kentang goreng yang gurih dan nikmat</p>
+            <span>Rp 15.000</span>
+            <button onclick="tambahKeKeranjang('French Fries',15000)">Tambah</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/mendoan.jpg">
+            <h3>French Fries</h3>
+            <p>Mendoan dengan dicocol sambal kecap yang lezat</p>
+            <span>Rp 15.000</span>
+            <button onclick="tambahKeKeranjang('Mendoan',15000)">Tambah</button>
+        </div>
+    </div>
+</section>
+
+<!-- PESAN -->
+<section id="pesan" class="section pesan">
+    <h2>Pemesanan di Tempat</h2>
+    <p class="subtitle">
+        Silakan lakukan pemesanan langsung dari meja Anda.
+    </p>
+
+    <div class="order-box">
+        <!-- DATA PELANGGAN -->
+        <div class="order-form">
+            <label>Nama Pelanggan</label>
+            <input type="text" id="nama" placeholder="Contoh: Reyhan">
+
+            <label>Nomor Meja</label>
+            <input type="number" id="meja" placeholder="Contoh: 5">
+        </div>
+
+        <!-- RINGKASAN PESANAN -->
+        <div class="order-summary">
+            <h3>Ringkasan Pesanan</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Menu</th>
+                        <th>Harga</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="keranjang"></tbody>
+            </table>
+
+            <div class="total-box">
+                <span>Total Pembayaran</span>
+                <strong>Rp <span id="total">0</span></strong>
+            </div>
+
+            <button onclick="kirimPesanan()" class="btn-order">
+                Konfirmasi Pesanan
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- KONTAK -->
+<section id="kontak" class="section kontak">
+    <h2>Kontak Kami</h2>
+    <p>📍 Jl. Raya Laren, RT2 RW1, Bumiayu</p>
+    <p>📞 085802869140</p>
+    <p>⏰ 08.00 - 22.00</p>
+</section>
+
+<footer>
+    <p>© 2026 Kedai Kopi RN. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

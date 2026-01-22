@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: #2c1b18;
+    color: white;
+    font-weight: bolder;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    background: url("img/hero.jpg") center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+/* SECTION */
+.section {
+    padding: 70px;
+}
+
+/* TENTANG */
+.tentang {
+    display: flex;
+    gap: 40px;
+}
+
+.tentang img {
+    width: 40%;
+    border-radius: 10px;
+}
+
+/* MENU */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.menu-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 230px;       
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.menu-item button {
+    background: #2c1b18;
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 100%;
+}
+
+/* PESAN */
+.pesan input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+/* FOOTER */
+footer {
+    background: #2c1b18;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* PEMESANAN */
+.pesan {
+    background: #f9f9f9;
+}
+
+.pesan .subtitle {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.order-box {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+}
+
+.order-form label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+}
+
+.order-form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.order-summary h3 {
+    margin-bottom: 15px;
+}
+
+.order-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-summary th,
+.order-summary td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.order-summary button.hapus {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.btn-order {
+    width: 100%;
+    padding: 14px;
+    background: #2c1b18;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
