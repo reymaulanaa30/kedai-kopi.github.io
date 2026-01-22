@@ -70,6 +70,31 @@ function hapusItem(index) {
     renderKeranjang();
 }
 
+function generateNomorPesanan() {
+    let today = new Date();
+
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
+    let yyyy = today.getFullYear();
+
+    let tanggalHariIni = `${dd}${mm}${yyyy}`;
+
+    let lastDate = localStorage.getItem("lastOrderDate");
+    let orderCount = localStorage.getItem("orderCount");
+
+    if (lastDate === tanggalHariIni) {
+        orderCount = parseInt(orderCount) + 1;
+    } else {
+        orderCount = 1;
+        localStorage.setItem("lastOrderDate", tanggalHariIni);
+    }
+
+    localStorage.setItem("orderCount", orderCount);
+
+    return `${orderCount}${tanggalHariIni}`;
+}
+
+
 function kirimPesanan() {
     let nama = document.getElementById("nama").value;
     let meja = document.getElementById("meja").value;
@@ -79,7 +104,8 @@ function kirimPesanan() {
         return;
     }
 
-    let nomorPesanan = Math.floor(1000 + Math.random() * 9000);
+    let nomorPesanan = generateNomorPesanan();
+
 
     let detailPesanan = keranjang.map((item, i) => {
     return `${i + 1}. ${item.nama} x${item.qty} = Rp ${item.harga * item.qty}`;
